@@ -1,4 +1,4 @@
-# Quiz IA - Club de sport amateur
+# Quiz IA - Club de sport amateur TEST
 
 Mini application React + Vite réalisée à partir d'une fiche de cadrage sur un kit de sensibilisation IA pour les bénévoles de clubs sportifs amateurs.
 
