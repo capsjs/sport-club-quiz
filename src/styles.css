@@ -8,7 +8,7 @@
     "Segoe UI",
     sans-serif;
   color: #1c2430;
-  background: #f4efe6;
+  background: #ffffff;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
 }
@@ -38,6 +38,8 @@ button {
       transparent 32%
     ),
     linear-gradient(135deg, #f7efe5 0%, #eef4ef 100%);
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .hero-card {
