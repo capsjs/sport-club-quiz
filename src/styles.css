@@ -378,16 +378,12 @@ h2 {
 }
 
 .logo-placeholder {
-  width: 120px;
-  height: 60px;
-  background: #e8ddd1;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  color: #7a6658;
-  font-size: 0.9rem;
+  width: 500px;
+  height: auto;
+  background: none;
+  border-radius: 0;
+  display: block;
+  max-width: 100%;
 }
 
 .hero-section {

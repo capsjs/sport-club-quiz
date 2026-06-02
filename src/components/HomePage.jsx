@@ -6,7 +6,7 @@ export default function HomePage({ onStartQuiz }) {
       {/* Logo + Hero Section */}
       <div className="hero-wrapper">
         <div className="logo-header">
-          <div className="logo-placeholder">LOGO</div>
+          <img src="/assets/logo_machina.svg" alt="Logo du club" className="logo-placeholder" />
         </div>
 
         <section className="hero-section">
