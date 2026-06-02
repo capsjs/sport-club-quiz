@@ -6,7 +6,11 @@ export default function HomePage({ onStartQuiz }) {
       {/* Logo + Hero Section */}
       <div className="hero-wrapper">
         <div className="logo-header">
-          <img src="/assets/logo_machina.svg" alt="Logo du club" className="logo-placeholder" />
+          <img
+            src="/assets/logo_machina.svg"
+            alt="Logo du club"
+            className="logo-placeholder"
+          />
         </div>
 
         <section className="hero-section">
@@ -35,14 +39,22 @@ export default function HomePage({ onStartQuiz }) {
             </p>
           </div>
           <div className="section-image">
-            <div className="image-placeholder">IMAGE 1</div>
+            <img
+              src="/assets/image1.png"
+              alt="Interface quiz IA"
+              className="image-placeholder"
+            />
           </div>
         </section>
 
         {/* Section 2: Découvrez vos résultats */}
         <section className="content-section">
           <div className="section-image">
-            <div className="image-placeholder">IMAGE 2</div>
+            <img
+              src="/assets/image2.png"
+              alt="Résultats du quiz"
+              className="image-placeholder"
+            />
           </div>
           <div className="section-content">
             <h2>Découvrez vos résultats et progressez</h2>
@@ -65,7 +77,11 @@ export default function HomePage({ onStartQuiz }) {
             </p>
           </div>
           <div className="section-image">
-            <div className="image-placeholder">IMAGE 3</div>
+            <img
+              src="/assets/image3.png"
+              alt="Fiche mémo IA"
+              className="image-placeholder"
+            />
           </div>
         </section>
       </div>

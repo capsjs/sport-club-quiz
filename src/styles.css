@@ -427,7 +427,7 @@ h2 {
   background-repeat: no-repeat;
   background-position: right -350px;
   background-size: 100% auto;
-  padding: 136px 0;
+  padding: 96px 0;
   display: flex;
   flex-direction: column;
   gap: 136px;
@@ -477,15 +477,12 @@ h2 {
 .image-placeholder {
   width: 100%;
   aspect-ratio: 4 / 3;
-  background: #e8ddd1;
   border-radius: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  color: #7a6658;
-  font-size: 1rem;
-  box-shadow: 0 12px 32px rgba(66, 47, 29, 0.12);
+  display: block;
+  object-fit: cover;
+  background: none;
+  background-color: transparent;
+  padding: 0;
 }
 
 .final-cta {
