@@ -9,6 +9,7 @@
     sans-serif;
   color: #1c2430;
   background: #ffffff;
+  --site-max-width: 1200px;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
 }
@@ -38,7 +39,7 @@ button {
       transparent 32%
     ),
     linear-gradient(135deg, #f7efe5 0%, #eef4ef 100%);
-  max-width: 1400px;
+  max-width: var(--site-max-width);
   margin: 0 auto;
 }
 
@@ -496,6 +497,30 @@ h2 {
   background: none;
   background-color: transparent;
   padding: 0;
+}
+
+/* Allow right-side images to overflow the centered container and reach viewport edge */
+.content-section {
+  overflow: visible;
+}
+
+.content-section:nth-of-type(odd) .section-image {
+  justify-content: flex-end;
+  overflow: visible;
+}
+
+.content-section:nth-of-type(odd) .section-image img {
+  display: block;
+  max-width: none;
+  width: calc(100% + ((100vw - var(--site-max-width)) / 2));
+  margin-right: calc(- ((100vw - var(--site-max-width)) / 2));
+}
+
+@media (max-width: 1200px) {
+  .content-section:nth-of-type(odd) .section-image img {
+    width: 100%;
+    margin-right: 0;
+  }
 }
 
 .final-cta {
