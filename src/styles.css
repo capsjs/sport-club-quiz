@@ -168,6 +168,16 @@ h2 {
   transform: translateY(-2px);
 }
 
+.homepage .secondary-button {
+  background: #111;
+  color: white;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+}
+
+.homepage .secondary-button:hover {
+  opacity: 0.95;
+}
+
 .topline {
   display: flex;
   justify-content: space-between;
@@ -410,7 +420,8 @@ h2 {
   font-weight: 900;
 }
 
-.hero-section .primary-button {
+.hero-section .primary-button,
+.hero-section .secondary-button {
   margin: 24px 0 16px;
 }
 
@@ -509,7 +520,8 @@ h2 {
   margin-right: auto;
 }
 
-.final-cta .primary-button {
+.final-cta .primary-button,
+.final-cta .secondary-button {
   margin-top: 24px;
 }
 

@@ -21,7 +21,7 @@ export default function HomePage({ onStartQuiz }) {
             <br />
             <span className="highlight">votre club</span>
           </h1>
-          <button className="primary-button" onClick={onStartQuiz}>
+          <button className="secondary-button" onClick={onStartQuiz}>
             Commencer
           </button>
           <p className="duration">⏱️ 10 minutes</p>
@@ -93,7 +93,7 @@ export default function HomePage({ onStartQuiz }) {
           Testez vos connaissances, découvrez les bonnes pratiques et améliorez
           votre communication en seulement quelques minutes.
         </p>
-        <button className="primary-button" onClick={onStartQuiz}>
+        <button className="secondary-button" onClick={onStartQuiz}>
           Commencer
         </button>
       </section>
