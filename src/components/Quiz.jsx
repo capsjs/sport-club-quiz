@@ -107,7 +107,7 @@ export default function Quiz({ onExit }) {
               Question {currentIndex + 1}/{questions.length}
             </span>
             <span>
-              {Math.floor(timeLeft / 60)}:
+             ⏱️ {Math.floor(timeLeft / 60)}:
               {String(timeLeft % 60).padStart(2, "0")}
             </span>
           </div>
@@ -179,7 +179,7 @@ export default function Quiz({ onExit }) {
           </div>
 
           <h1>
-            {score}/{answers.length} réponses correctes
+            {score}/17 réponses correctes
           </h1>
 
           <div
