@@ -32,24 +32,24 @@ button {
   min-height: 100vh;
   display: grid;
   place-items: center;
-  background:
-    radial-gradient(
-      circle at top left,
-      rgba(234, 121, 55, 0.25),
-      transparent 32%
-    ),
-    linear-gradient(135deg, #f7efe5 0%, #eef4ef 100%);
   max-width: var(--site-max-width);
   margin: 0 auto;
+  background:
+    linear-gradient(
+      180deg,
+      #faf6ef 0%,
+      #f7f2ea 100%
+    );
 }
 
 .hero-card {
   width: min(960px, 100%);
   min-height: 620px;
-  background: rgba(255, 255, 255, 0.86);
+  background: #edb24a;
+  background: rgba(255, 255, 255, 0.88);
   border: 1px solid rgba(255, 255, 255, 0.75);
   border-radius: 32px;
-  box-shadow: 0 24px 80px rgba(66, 47, 29, 0.16);
+  box-shadow: 0 24px 80px rgba(214, 67, 48, 0.16);
   padding: clamp(24px, 5vw, 56px);
   backdrop-filter: blur(18px);
 }
@@ -75,8 +75,8 @@ button {
   gap: 8px;
   padding: 8px 13px;
   border-radius: 999px;
-  background: #fff2e7;
-  color: #b75720;
+  background: #fff4df;
+  color: #d64330;
   font-weight: 700;
   font-size: 0.9rem;
   margin-bottom: 22px;
@@ -103,6 +103,12 @@ h2 {
   letter-spacing: -0.04em;
 }
 
+.quiz h2,
+.result h2,
+.review-card h3 {
+  color: #edb24a;
+}
+
 .lead {
   font-size: clamp(1.05rem, 2vw, 1.25rem);
   line-height: 1.7;
@@ -122,8 +128,8 @@ h2 {
 .memo-card {
   padding: 20px;
   border-radius: 22px;
-  background: #f9f6f0;
-  border: 1px solid #ece1d2;
+  background: #fff9ef;
+  border: 1px solid #f3d9a4;
 }
 
 .info-grid strong,
@@ -149,25 +155,31 @@ h2 {
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease,
-    opacity 0.2s ease;
+    opacity 0.2s ease,
+    background 0.2s ease;
 }
 
 .primary-button {
-  background: #ea7937;
+  background: #d64330;
   color: white;
-  box-shadow: 0 12px 28px rgba(234, 121, 55, 0.32);
+  box-shadow: 0 12px 28px rgba(214, 67, 48, 0.35);
+}
+
+.primary-button:hover {
+  background: #ea4629;
+  transform: translateY(-2px);
 }
 
 .secondary-button {
-  background: #edf2ec;
-  color: #263529;
+  background: #fff4df;
+  color: #9c2f24;
   display: inline-flex;
   align-items: center;
   gap: 8px;
 }
 
-.primary-button:hover,
 .secondary-button:hover {
+  background: #ffe7b8;
   transform: translateY(-2px);
 }
 
@@ -185,14 +197,14 @@ h2 {
   display: flex;
   justify-content: space-between;
   gap: 16px;
-  color: #7a6658;
+  color: #b04b39;
   font-weight: 700;
   margin-bottom: 14px;
 }
 
 .progress {
   height: 10px;
-  background: #efe7dc;
+  background: #ffe6d7;
   border-radius: 999px;
   overflow: hidden;
   margin-bottom: 34px;
@@ -202,7 +214,7 @@ h2 {
   display: block;
   height: 100%;
   border-radius: inherit;
-  background: linear-gradient(90deg, #ea7937, #80a86f);
+  background: linear-gradient(90deg, #d64330, #ea4629, #edb24a);
   transition: width 0.35s ease;
 }
 
@@ -214,7 +226,7 @@ h2 {
 .answer-button {
   width: 100%;
   min-height: 64px;
-  border: 2px solid #eee3d6;
+  border: 2px solid #f0d8c9;
   background: #fffdfa;
   color: #27313b;
   border-radius: 20px;
@@ -234,7 +246,7 @@ h2 {
 
 .answer-button:hover {
   transform: translateX(4px);
-  border-color: #e5a174;
+  border-color: #d64330;
 }
 
 .answer-button.correct {
@@ -250,7 +262,9 @@ h2 {
 }
 
 .answer-button.reveal-correct {
+  background: #e7f6e8;
   border-color: #49a35b;
+  color: #176126;
 }
 
 .answer-button.disabled {
@@ -261,8 +275,8 @@ h2 {
   margin-top: 24px;
   padding: 22px;
   border-radius: 22px;
-  background: #f4f8f1;
-  border: 1px solid #dfeadc;
+  background: #fff8eb;
+  border: 1px solid #f3d9a4;
 }
 
 .explanation p {
@@ -284,7 +298,7 @@ h2 {
   display: grid;
   place-items: center;
   border-radius: 50%;
-  background: conic-gradient(#80a86f var(--score, 75%), #f2e8dd 0);
+  background: conic-gradient(#d64330 var(--score, 75%), #f2e8dd 0);
   margin: 8px 0 24px;
   position: relative;
 }
@@ -301,6 +315,7 @@ h2 {
   position: relative;
   font-size: 2rem;
   font-weight: 900;
+  color: #d64330;
 }
 
 .memo-card {
@@ -314,67 +329,95 @@ h2 {
   padding-left: 20px;
 }
 
+.review-card {
+  width: min(760px, 100%);
+  margin: 18px 0 32px;
+  text-align: left;
+}
+
+.review-card h3 {
+  margin: 0 0 8px;
+  font-size: 1.35rem;
+  line-height: 1.3;
+}
+
+.review-intro {
+  margin-bottom: 24px;
+  color: #647079;
+  line-height: 1.6;
+}
+
+.review-item {
+  padding: 20px;
+  margin-bottom: 18px;
+  border-radius: 22px;
+  background: #fffdfa;
+  border: 1px solid #f0d8c9;
+  box-shadow: 0 10px 28px rgba(66, 47, 29, 0.06);
+}
+
+.review-item h4 {
+  margin: 0 0 14px;
+  color: #1c2430;
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+.review-answer {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.review-correct .review-answer {
+  background: #edf9ef;
+  border: 1px solid #9fd8ad;
+  box-shadow: 0 0 0 3px rgba(59, 178, 115, 0.1);
+}
+
+.review-incorrect .review-answer {
+  background: #fff0f0;
+  border: 1px solid #ef9a9a;
+  box-shadow: 0 0 0 3px rgba(227, 79, 79, 0.1);
+}
+
+.review-icon {
+  flex-shrink: 0;
+  font-size: 1.2rem;
+  line-height: 1.4;
+}
+
+.review-good-answer {
+  margin-bottom: 12px;
+  color: #2f3a45;
+  line-height: 1.5;
+}
+
+.review-explanation {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 16px;
+  border-radius: 16px;
+  background: #fff8eb;
+  border: 1px solid #f3d9a4;
+  color: #555;
+  line-height: 1.6;
+}
+
+.review-advice-icon {
+  flex-shrink: 0;
+}
+
 .actions {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
   justify-content: center;
-}
-
-@media (max-width: 760px) {
-  .hero-card {
-    min-height: auto;
-    border-radius: 24px;
-  }
-
-  .info-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .topline {
-    flex-direction: column;
-    gap: 4px;
-  }
-
-  .review-card {
-    margin-top: 2rem;
-    text-align: left;
-  }
-
-  .review-card h3 {
-    margin-bottom: 0.5rem;
-  }
-
-  .review-intro {
-    margin-bottom: 1.5rem;
-    color: #666;
-  }
-
-  .review-item {
-    padding: 1rem;
-    margin-bottom: 1rem;
-    border-radius: 12px;
-  }
-
-  .review-correct {
-    background: #edf9ef;
-    border-left: 4px solid #3bb273;
-  }
-
-  .review-incorrect {
-    background: #fff0f0;
-    border-left: 4px solid #e34f4f;
-  }
-
-  .review-item h4 {
-    margin-bottom: 0.75rem;
-  }
-
-  .review-explanation {
-    margin-top: 0.75rem;
-    color: #555;
-    line-height: 1.5;
-  }
 }
 
 /* HomePage Styles */
@@ -419,7 +462,7 @@ h2 {
 }
 
 .hero-title .highlight {
-  color: #ea7937;
+  color: #d64330;
   font-weight: 900;
 }
 
@@ -430,7 +473,7 @@ h2 {
 
 .duration {
   font-size: 0.95rem;
-  color: #7a6658;
+  color: #b04b39;
   font-weight: 600;
   margin: 0;
 }
@@ -454,6 +497,7 @@ h2 {
   align-items: center;
   width: 100%;
   padding: 0;
+  overflow: visible;
 }
 
 .content-section:nth-of-type(3) {
@@ -470,7 +514,7 @@ h2 {
   line-height: 1.15;
   letter-spacing: -0.03em;
   margin: 0 0 20px;
-  color: #1c2430;
+  color: #d64330;
 }
 
 .section-content p {
@@ -498,11 +542,6 @@ h2 {
   padding: 0;
 }
 
-/* Allow right-side images to overflow the centered container and reach viewport edge */
-.content-section {
-  overflow: visible;
-}
-
 .content-section:nth-of-type(odd) .section-image {
   justify-content: flex-end;
 }
@@ -510,7 +549,7 @@ h2 {
 .final-cta {
   padding: 80px 16px;
   text-align: center;
-  background: linear-gradient(135deg, #f7efe5 0%, #eef4ef 100%);
+  background: linear-gradient(135deg, #fff7ec 0%, #ffe2c8 100%);
 }
 
 .final-cta h2 {
@@ -518,17 +557,15 @@ h2 {
   line-height: 1.2;
   letter-spacing: -0.04em;
   margin: 0 0 24px;
-  color: #1c2430;
+  color: #d64330;
 }
 
 .final-cta p {
   font-size: clamp(1rem, 2vw, 1.15rem);
   line-height: 1.7;
   color: #586270;
-  margin: 0 0 32px;
+  margin: 0 auto 32px;
   max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .final-cta .primary-button,
@@ -549,8 +586,6 @@ h2 {
 
   .content-wrapper {
     padding: 48px 0;
-    display: flex;
-    flex-direction: column;
     gap: 48px;
   }
 
@@ -575,5 +610,30 @@ h2 {
 
   .final-cta h2 {
     font-size: clamp(1.6rem, 5vw, 2.2rem);
+  }
+}
+
+@media (max-width: 760px) {
+  .hero-card {
+    min-height: auto;
+    border-radius: 24px;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .topline {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .review-item {
+    padding: 16px;
+  }
+
+  .review-answer,
+  .review-explanation {
+    padding: 13px;
   }
 }

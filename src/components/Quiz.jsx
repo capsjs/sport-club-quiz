@@ -51,11 +51,16 @@ export default function Quiz({ onExit }) {
 
   const selectAnswer = (index) => {
     if (selectedIndex !== null) return;
+
     const isCorrect = index === currentQuestion.correct;
+
     setSelectedIndex(index);
     setAnswers((previous) => [
       ...previous,
-      { selectedIndex: index, isCorrect },
+      {
+        selectedIndex: index,
+        isCorrect,
+      },
     ]);
   };
 
@@ -79,7 +84,9 @@ export default function Quiz({ onExit }) {
     if (percentage >= 50) {
       return {
         title: "Bonnes bases, mais quelques réflexes à consolider",
-        text: `Revoyez surtout les questions liées à : ${weakQuestions.slice(0, 3).join(", ") || "les bonnes pratiques"}.`,
+        text: `Revoyez surtout les questions liées à : ${
+          weakQuestions.slice(0, 3).join(", ") || "les bonnes pratiques"
+        }.`,
       };
     }
 
@@ -119,6 +126,7 @@ export default function Quiz({ onExit }) {
             {currentQuestion.options.map((answer, index) => {
               const isSelected = selectedIndex === index;
               const isCorrect = index === currentQuestion.correct;
+
               const buttonClass =
                 selectedIndex === null
                   ? ""
@@ -151,7 +159,9 @@ export default function Quiz({ onExit }) {
                   ? "Bonne réponse."
                   : "Réponse à corriger."}
               </strong>
+
               <p>{currentQuestion.explanation}</p>
+
               <button className="primary-button" onClick={nextQuestion}>
                 {currentIndex + 1 < questions.length
                   ? "Question suivante"
@@ -167,22 +177,25 @@ export default function Quiz({ onExit }) {
           <div className="badge">
             <Trophy size={16} /> Résultat
           </div>
+
           <h1>
             {score}/{answers.length} réponses correctes
           </h1>
+
           <div
             className="score-circle"
             style={{
-              background: `conic-gradient(#80a86f ${percentage}%, #f2e8dd 0)`,
+              background: `conic-gradient(#d64330 ${percentage}%, #f2e8dd 0)`,
             }}
           >
             <span>{percentage}%</span>
           </div>
+
           <h2>{advice.title}</h2>
           <p className="lead">{advice.text}</p>
 
           <div className="memo-card">
-            <strong>À retenir</strong>
+            <strong>💡 À retenir</strong>
             <ul>
               <li>
                 L'IA permet de gagner du temps, mais ne remplace pas la
@@ -209,6 +222,10 @@ export default function Quiz({ onExit }) {
 
             {questions.map((question, index) => {
               const answer = answers[index];
+              const userAnswer = answer
+                ? question.options[answer.selectedIndex]
+                : "Aucune réponse";
+              const correctAnswer = question.options[question.correct];
 
               return (
                 <div
@@ -218,24 +235,27 @@ export default function Quiz({ onExit }) {
                   }`}
                 >
                   <h4>
-                    {answer?.isCorrect ? "✅" : "❌"} {question.question}
+                    {index + 1}. {question.question}
                   </h4>
 
-                  <p>
-                    <strong>Votre réponse :</strong>
-                    {answer
-                      ? question.options[answer.selectedIndex]
-                      : "Aucune réponse"}
-                  </p>
+                  <div className="review-answer">
+                    <span className="review-icon">
+                      {answer?.isCorrect ? "✅" : "❌"}
+                    </span>
 
-                  {answer && !answer.isCorrect && (
-                    <p>
-                      <strong>Bonne réponse :</strong>
-                      {question.options[question.correct]}
-                    </p>
-                  )}
+                    <span>
+                      <strong>Votre réponse :</strong> {userAnswer}
+                    </span>
+                  </div>
 
-                  <p className="review-explanation">{question.explanation}</p>
+                  <div className="review-good-answer">
+                    <strong>Bonne réponse :</strong> {correctAnswer}
+                  </div>
+
+                  <div className="review-explanation">
+                    <span className="review-advice-icon">💡</span>
+                    <span>{question.explanation}</span>
+                  </div>
                 </div>
               );
             })}
@@ -245,6 +265,7 @@ export default function Quiz({ onExit }) {
             <button className="secondary-button" onClick={startQuiz}>
               <RotateCcw size={18} /> Refaire le quiz
             </button>
+
             <button
               className="primary-button"
               onClick={() => {
@@ -262,12 +283,15 @@ export default function Quiz({ onExit }) {
           <div className="badge">
             <HeartHandshake size={16} /> Merci
           </div>
+
           <h1>Merci d'avoir participé !</h1>
+
           <p className="lead">
             Vous avez maintenant les premiers repères pour utiliser l'IA de
             façon plus efficace, plus responsable et plus critique dans la
             communication de votre club.
           </p>
+
           <button className="primary-button" onClick={startQuiz}>
             Recommencer
           </button>
