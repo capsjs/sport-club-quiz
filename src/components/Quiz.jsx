@@ -1,4 +1,5 @@
 import React, { useMemo, useState, useEffect } from "react";
+import jsPDF from "jspdf";
 import {
   CheckCircle2,
   XCircle,
@@ -7,17 +8,20 @@ import {
   HeartHandshake,
 } from "lucide-react";
 import { questions } from "../data/questions";
+import { generateLearningSheet } from "../utils/generateLearningSheet";
 
 export default function Quiz({ onExit }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [answers, setAnswers] = useState([]);
-  const [timeLeft, setTimeLeft] = useState(240);
+  const [timeLeft, setTimeLeft] = useState(2);
   const [step, setStep] = useState("quiz");
 
   const currentQuestion = questions[currentIndex];
   const score = answers.filter((answer) => answer.isCorrect).length;
   const percentage = Math.round((score / questions.length) * 100);
+
+
 
   useEffect(() => {
     if (step !== "quiz") return;
@@ -46,7 +50,7 @@ export default function Quiz({ onExit }) {
     setCurrentIndex(0);
     setSelectedIndex(null);
     setAnswers([]);
-    setTimeLeft(240);
+    setTimeLeft(2);
   };
 
   const selectAnswer = (index) => {
@@ -261,6 +265,20 @@ export default function Quiz({ onExit }) {
             })}
           </div>
 
+          <div className="upload-action">
+            <button
+              className="upload-button"
+              onClick={() =>
+                generateLearningSheet({
+                  questions,
+                  answers,
+                  score,
+                })
+              }
+            >
+              Télécharger mon bilan
+            </button>
+
           <div className="actions">
             <button className="secondary-button" onClick={startQuiz}>
               <RotateCcw size={18} /> Refaire le quiz
@@ -275,6 +293,8 @@ export default function Quiz({ onExit }) {
               Terminer
             </button>
           </div>
+          </div>
+
         </div>
       )}
 
