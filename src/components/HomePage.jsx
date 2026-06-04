@@ -5,9 +5,9 @@ export default function HomePage({ onStartQuiz }) {
     <main className="homepage">
       {/* Logo + Hero Section */}
       <div className="hero-wrapper">
-        <div className="logo-header">
+        <div className="logo logo-header">
           <img
-            src="/assets/logo_machina.svg"
+            src="/assets/logo_machina.png"
             alt="Logo du club"
             className="logo-placeholder"
           />
@@ -32,6 +32,11 @@ export default function HomePage({ onStartQuiz }) {
       <div className="content-wrapper">
         <section className="content-section">
           <div className="section-content">
+            <img
+              src="/assets/question.png"
+              alt="logo question"
+              className="icon"
+            />
             <h2>Répondez à des situations concrètes</h2>
             <p>
               Mettez-vous dans la peau d'un bénévole chargé de la communication
@@ -57,11 +62,12 @@ export default function HomePage({ onStartQuiz }) {
             />
           </div>
           <div className="section-content">
+            <img src="/assets/time.png" alt="logo horloge" className="icon" />
             <h2>Découvrez vos résultats et progressez</h2>
             <p>
-              Obtenez un débriefing personnalisé, identifiez vos points de
-              vigilance et découvrez les bonnes pratiques pour utiliser l'IA de
-              manière plus efficace et responsable.
+              Obtenez un débriefing, identifiez vos points de vigilance et
+              découvrez les bonnes pratiques pour utiliser l'IA de manière plus
+              efficace et responsable.
             </p>
           </div>
         </section>
@@ -69,6 +75,7 @@ export default function HomePage({ onStartQuiz }) {
         {/* Section 3: Repartez avec votre fiche mémo */}
         <section className="content-section">
           <div className="section-content">
+            <img src="/assets/doc.png" alt="logo fiche mémo" className="icon" />
             <h2>Repartez avec votre fiche mémo</h2>
             <p>
               À l'issue du parcours, recevez une fiche synthétique regroupant
@@ -88,7 +95,9 @@ export default function HomePage({ onStartQuiz }) {
 
       {/* CTA Section */}
       <section className="final-cta">
-        <h2>Prêt à relever le défi ?</h2>
+        <h2>
+          Prêt à relever le <span className="highlight">défi</span> ?
+        </h2>
         <p>
           Testez vos connaissances, découvrez les bonnes pratiques et améliorez
           votre communication en seulement quelques minutes.
@@ -96,6 +105,13 @@ export default function HomePage({ onStartQuiz }) {
         <button className="secondary-button" onClick={onStartQuiz}>
           Commencer
         </button>
+        <div className="logo logo-footer">
+          <img
+            src="/assets/logo_machina.png"
+            alt="Logo du club"
+            className="logo-placeholder"
+          />
+        </div>
       </section>
     </main>
   );

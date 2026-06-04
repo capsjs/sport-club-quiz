@@ -14,14 +14,12 @@ export default function Quiz({ onExit }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [answers, setAnswers] = useState([]);
-  const [timeLeft, setTimeLeft] = useState(2);
+  const [timeLeft, setTimeLeft] = useState(240);
   const [step, setStep] = useState("quiz");
 
   const currentQuestion = questions[currentIndex];
   const score = answers.filter((answer) => answer.isCorrect).length;
   const percentage = Math.round((score / questions.length) * 100);
-
-
 
   useEffect(() => {
     if (step !== "quiz") return;
@@ -111,7 +109,7 @@ export default function Quiz({ onExit }) {
               Question {currentIndex + 1}/{questions.length}
             </span>
             <span>
-             ⏱️ {Math.floor(timeLeft / 60)}:
+              ⏱️ {Math.floor(timeLeft / 60)}:
               {String(timeLeft % 60).padStart(2, "0")}
             </span>
           </div>
@@ -182,9 +180,7 @@ export default function Quiz({ onExit }) {
             <Trophy size={16} /> Résultat
           </div>
 
-          <h1>
-            {score}/17 réponses correctes
-          </h1>
+          <h1>{score}/17 réponses correctes</h1>
 
           <div
             className="score-circle"
@@ -217,7 +213,7 @@ export default function Quiz({ onExit }) {
           </div>
 
           <div className="review-card">
-            <h3>📋 Votre fiche d'apprentissage personnalisée</h3>
+            <h3>📋 Votre fiche d'apprentissage</h3>
 
             <p className="review-intro">
               Retrouvez ci-dessous vos réponses ainsi que les bonnes pratiques à
@@ -279,22 +275,21 @@ export default function Quiz({ onExit }) {
               Télécharger mon bilan
             </button>
 
-          <div className="actions">
-            <button className="secondary-button" onClick={startQuiz}>
-              <RotateCcw size={18} /> Refaire le quiz
-            </button>
+            <div className="actions">
+              <button className="secondary-button" onClick={startQuiz}>
+                <RotateCcw size={18} /> Refaire le quiz
+              </button>
 
-            <button
-              className="primary-button"
-              onClick={() => {
-                if (onExit) onExit();
-              }}
-            >
-              Terminer
-            </button>
+              <button
+                className="primary-button"
+                onClick={() => {
+                  if (onExit) onExit();
+                }}
+              >
+                Terminer
+              </button>
+            </div>
           </div>
-          </div>
-
         </div>
       )}
 

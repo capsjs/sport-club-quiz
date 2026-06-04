@@ -4,7 +4,7 @@
   font-style: normal;
   color: #1c2430;
   background: #ffffff;
-  --site-max-width: 1400px;
+  --site-max-width: 1279px;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
 }
@@ -44,6 +44,65 @@ button {
   backdrop-filter: blur(18px);
 }
 
+.logo {
+  width: 100%;
+  padding: 40px 16px 0;
+  display: flex;
+  justify-content: center;
+  margin-inline: auto;
+  position: relative;
+  overflow: visible;
+}
+
+/* shared logo image */
+.logo .logo-placeholder {
+  position: relative;
+  z-index: 1;
+  /* width: 500px; */
+  height: auto;
+  background: none;
+  border-radius: 0;
+  display: block;
+  max-width: 100%;
+}
+
+/* header-specific semicircle (top) */
+.logo-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(380px, 80%);
+  height: 190px;
+  background: #ffffff;
+  border-radius: 0 0 999px 999px;
+  z-index: 0;
+}
+
+.logo-footer && logo {
+  padding-block-end: 20px;
+}
+
+/* footer-specific semicircle (inverted, bottom) */
+.logo-footer::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(380px, 80%);
+  height: 190px;
+  background: #ffffff;
+  border-radius: 999px 999px 0 0;
+  z-index: 0;
+}
+
+/* move only the footer logo up without moving the semicircle */
+.logo-footer .logo-placeholder {
+  transform: translateY(-50px);
+  padding-top: 150px;
+}
 .fade-in {
   animation: fadeIn 0.35s ease both;
 }
@@ -141,7 +200,6 @@ h2 {
   border-radius: 999px;
   padding: 14px 22px;
   cursor: pointer;
-  font-weight: 800;
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease,
@@ -449,28 +507,47 @@ h2 {
   padding: 40px 16px 0;
   display: flex;
   justify-content: center;
+  margin-inline: auto;
+  position: relative;
+  overflow: visible;
+}
+
+.logo-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(380px, 80%);
+  height: 190px;
+  background: #ffffff;
+  border-radius: 0 0 999px 999px;
+  z-index: 0;
 }
 
 .logo-placeholder {
-  width: 500px;
-  height: auto;
-  background: none;
-  border-radius: 0;
+  position: relative;
+  z-index: 1;
   display: block;
-  max-width: 100%;
 }
 
 .hero-wrapper {
-  background: radial-gradient(ellipse at top, #ffd2aa 0%, #fff7ec 100%);
+  background: radial-gradient(
+    circle at top center,
+    rgba(234, 70, 41, 0.4) 0%,
+    rgba(214, 67, 48, 0.35) 18%,
+    rgba(250, 222, 205, 0.9) 55%,
+    rgba(255, 247, 236, 1) 90%
+  );
 }
 
 .hero-section {
-  min-height: 60vh;
+  /* min-height: 50vh; */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 60px 16px;
+  padding: 130px 16px 60px;
   text-align: center;
 }
 
@@ -484,7 +561,7 @@ h2 {
   max-width: 800px;
 }
 
-.hero-title .highlight {
+.highlight {
   color: #d64330;
   font-weight: 600;
 }
@@ -506,12 +583,12 @@ h2 {
   background-color: #faf7f2;
   background-image: url("/assets/vector_1.svg");
   background-repeat: no-repeat;
-  background-position: right -350px;
+  background-position: 0 -250px;
   background-size: 100% auto;
   padding: 150px 0;
   display: flex;
   flex-direction: column;
-  gap: 150px;
+  gap: 180px;
 }
 
 .content-section {
@@ -529,8 +606,13 @@ h2 {
   margin-bottom: 80px;
 }
 
+.section-content {
+  padding-top: 50px;
+  align-self: start;
+}
+
 .content-section:nth-of-type(odd) .section-content {
-  margin-inline-start: 20px;
+  margin-inline-start: 75px;
 }
 
 .section-content h2 {
@@ -559,6 +641,10 @@ h2 {
   justify-content: center;
 }
 
+.icon {
+  margin-bottom: 16px;
+}
+
 .image-placeholder {
   width: 100%;
   aspect-ratio: 4 / 3;
@@ -575,9 +661,15 @@ h2 {
 }
 
 .final-cta {
-  padding: 80px 16px;
+  padding: 80px 16px 0;
   text-align: center;
-  background: radial-gradient(ellipse at bottom, #ffd2aa 0%, #fff7ec 100%);
+  background: radial-gradient(
+    circle at bottom center,
+    rgba(234, 70, 41, 0.4) 0%,
+    rgba(214, 67, 48, 0.35) 18%,
+    rgba(250, 222, 205, 0.9) 55%,
+    rgba(255, 247, 236, 1) 90%
+  );
 }
 
 .final-cta h2 {

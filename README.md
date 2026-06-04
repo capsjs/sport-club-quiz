@@ -11,7 +11,6 @@ Mini application React + Vite réalisée à partir d'une fiche de cadrage sur un
 - Réponse incorrecte en rouge
 - Explication pédagogique après chaque réponse
 - Score final
-- Conseil personnalisé selon le score
 - Écran de remerciement
 
 ## Installation
